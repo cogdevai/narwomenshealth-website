@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Nar</title>
+    <link rel="canonical" href="https://narwomenshealth.com/privacy.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --burgundy: #6B1E2E;
+            --burgundy-deep: #4A0F1C;
+            --seed: #C4785A;
+            --membrane: #F5EDE6;
+            --cream: #FAF6F1;
+            --parchment: #F0E8DC;
+            --slate: #3D3C3A;
+            --slate-mid: #6B6460;
+            --slate-light: #A09A96;
+            --border-faint: rgba(61, 60, 58, 0.08);
+            --serif: 'Cormorant Garamond', serif;
+            --sans: 'DM Sans', -apple-system, sans-serif;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: var(--sans); background: var(--cream); color: var(--slate); line-height: 1.7; font-weight: 300; padding: 56px 24px 88px; }
+        .container { max-width: 720px; margin: 0 auto; }
+        .back { display: inline-block; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--slate-light); text-decoration: none; margin-bottom: 32px; font-weight: 300; }
+        .back:hover { color: var(--burgundy); }
+        h1 { font-family: var(--serif); font-size: 44px; font-weight: 300; font-style: italic; color: var(--burgundy); line-height: 1.1; margin-bottom: 8px; }
+        .updated { font-size: 12px; letter-spacing: 0.08em; color: var(--slate-light); margin-bottom: 48px; text-transform: uppercase; }
+        .lede { font-size: 17px; color: var(--slate-mid); line-height: 1.7; margin-bottom: 40px; padding-bottom: 32px; border-bottom: 0.5px solid var(--border-faint); }
+        h2 { font-family: var(--serif); font-size: 22px; font-weight: 400; font-style: italic; color: var(--slate); margin-top: 40px; margin-bottom: 14px; }
+        p, li { font-size: 15px; color: var(--slate-mid); line-height: 1.75; margin-bottom: 12px; }
+        ul { padding-left: 22px; margin-bottom: 16px; }
+        li { margin-bottom: 8px; }
+        strong { color: var(--slate); font-weight: 500; }
+        a { color: var(--burgundy); text-decoration: none; border-bottom: 0.5px solid rgba(107,30,46,0.3); }
+        a:hover { border-bottom-color: var(--burgundy); }
+        .footer { margin-top: 64px; padding-top: 32px; border-top: 0.5px solid var(--border-faint); font-size: 12px; color: var(--slate-light); }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="index.html" class="back">&larr; Back to Nar</a>
+    <h1>Privacy Policy</h1>
+    <div class="updated">Last updated: 1 May 2026</div>
+
+    <p class="lede">
+        Nar is built so this question has a real, structural answer: we never receive your health data. Everything below describes how that's actually true — not just what we promise.
+    </p>
+
+    <h2>1. Who we are</h2>
+    <p>Nar is operated by Cognitive Intelligence Development ("CID", "we", "us"). This policy explains what data Nar handles, where it lives, and what control you have over it.</p>
+
+    <h2>2. The short version</h2>
+    <ul>
+        <li>Your health data is read by the Nar app on your iPhone and stays there. We have no server that processes it.</li>
+        <li>If you connect Oura, your iPhone fetches your own Oura data directly from Oura's API. We are not in the loop.</li>
+        <li>If you connect Apple Health, that data never leaves your device — Apple's HealthKit doesn't transmit it to us.</li>
+        <li>We do not run analytics, telemetry, crash reporters, or third-party SDKs that profile your usage.</li>
+        <li>Sign in with Apple is the only sign-in method. You control whether your real email is shared.</li>
+        <li>Subscription transactions are handled by Apple. We see only the anonymous transaction identifier needed to confirm an active subscription.</li>
+    </ul>
+
+    <h2>3. Data Nar reads (on your device)</h2>
+    <p>To produce insights, the Nar app reads the following on your iPhone:</p>
+    <ul>
+        <li><strong>From Apple Health (HealthKit):</strong> Sleep stages, heart rate, heart rate variability, resting heart rate, respiratory rate, blood oxygen (SpO₂), active and basal energy, step count, body weight, skin temperature, menstrual flow.</li>
+        <li><strong>From Oura (if connected):</strong> Sleep stages, HRV, resting HR, skin temperature delta, recovery score, sedentary minutes, activity, SpO₂, respiratory rate.</li>
+        <li><strong>From you, in the app:</strong> Life stage (cycling, postpartum, perimenopause, menopause, post-menopause, pregnant), cycle profile, age, optional symptom logs, optional notes.</li>
+    </ul>
+    <p>All of this is read into the app's memory on your device, written to local storage protected by iOS Data Protection (encrypted at rest), and processed by Nar's scoring engine and on-device CoreML model.</p>
+
+    <h2>4. Data that leaves your device</h2>
+    <p>Two categories of data leave your iPhone, both narrowly scoped:</p>
+    <ul>
+        <li><strong>Oura API requests (only if you connect Oura).</strong> Your device makes authenticated requests to <code>api.ouraring.com</code> using an access token you grant. The response is your own Oura data, returned to your device and stored locally. Nar's servers are not part of this exchange.</li>
+        <li><strong>Apple Sign In and App Store transactions.</strong> Authentication is handled by Apple. Subscriptions are handled by Apple's StoreKit. Apple may share an anonymous user identifier and subscription status with the app. We never receive your name, email, or payment information directly.</li>
+    </ul>
+    <p>That is the complete list of outbound network activity from Nar.</p>
+
+    <h2>5. What we do not collect</h2>
+    <ul>
+        <li>We do not run analytics SDKs (no Firebase Analytics, no Mixpanel, no Amplitude, no Segment).</li>
+        <li>We do not run advertising SDKs or ad networks.</li>
+        <li>We do not have an account database with your health metrics.</li>
+        <li>We do not train any model on your data.</li>
+        <li>We do not sell, rent, or share your data with anyone.</li>
+    </ul>
+
+    <h2>6. Crash reporting</h2>
+    <p>To fix bugs, Nar may use a third-party crash reporter (such as Firebase Crashlytics). Where it is enabled, it is configured to receive only the crash trace — the technical record of what failed in the app code. It does <strong>not</strong> receive your health metrics, your symptom logs, your cycle profile, your name, or your email. The user identifier shared with the crash reporter is the anonymous, app-specific identifier provided by Sign in with Apple, which cannot be used to identify you across other apps.</p>
+
+    <h2>7. The on-device ML model</h2>
+    <p>Nar ships with a small temporal encoder (~69,000 parameters) that runs in CoreML on your iPhone. It was trained on the public LifeSnaps dataset (Pierris et al., Nature Scientific Data, 2022) before shipping, and is frozen — it does not learn from your data, send your data anywhere, or transmit predictions externally.</p>
+
+    <h2>8. Personal baselines</h2>
+    <p>Over time the app computes your personal baselines (your typical HRV, your typical cycle of skin temperature, your normal sleep patterns) so its readings get sharper. These baselines live in app storage on your device, encrypted by iOS Data Protection, and are removed when you delete the app or reset your data from Settings.</p>
+
+    <h2>9. Sign in with Apple</h2>
+    <p>Nar uses Sign in with Apple as its only authentication method. Apple gives the app a stable identifier specific to Nar — we cannot use it to identify you across other apps. If you choose Apple's "Hide My Email" feature, the email we receive is a relay address controlled by Apple; we never see your real email.</p>
+
+    <h2>10. Subscriptions</h2>
+    <p>If you subscribe to Nar Pro, the transaction is handled by Apple's StoreKit. The app receives a verification of your subscription status from Apple. We do not receive payment card information, billing address, or any financial details.</p>
+
+    <h2>11. Children</h2>
+    <p>Nar is intended for adult women managing their own health. It is not designed for or directed to children under 13.</p>
+
+    <h2>12. Data deletion</h2>
+    <p>You can remove all Nar data at any time:</p>
+    <ul>
+        <li><strong>Inside the app:</strong> Profile → Delete account. This wipes the local database, personal baselines, and any cached Oura tokens.</li>
+        <li><strong>By deleting the app:</strong> Removing Nar from your iPhone removes its local storage. Your Apple Health data is unaffected (it's owned by Apple Health, not Nar).</li>
+        <li><strong>For Oura:</strong> Revoke Nar's access in the Oura app or at <a href="https://cloud.ouraring.com/personal-access-tokens">cloud.ouraring.com</a>.</li>
+    </ul>
+
+    <h2>13. Your rights</h2>
+    <p>Because we do not hold your health data on our servers, traditional access/correction/erasure requests largely don't apply — there is nothing on our end to access, correct, or erase. For any subscription-related personal data Apple shares with us, or for general questions, contact <a href="mailto:nar@cogdev.ai">nar@cogdev.ai</a>.</p>
+
+    <h2>14. Changes to this policy</h2>
+    <p>If we change this policy in any material way (for example, adding any backend processing of health data), we will update the "Last updated" date and notify you in the app before the change takes effect. Any change that would weaken the on-device-only architecture would be a fundamental change to the product, not a minor update.</p>
+
+    <h2>15. Contact</h2>
+    <p>
+        Cognitive Intelligence Development<br>
+        Email: <a href="mailto:nar@cogdev.ai">nar@cogdev.ai</a><br>
+        Website: <a href="https://www.cogdev.ai">cogdev.ai</a>
+    </p>
+
+    <div class="footer">© Cognitive Intelligence Development · <a href="index.html" style="color: var(--slate-light); border: none;">narwomenshealth.com</a></div>
+</div>
+</body>
+</html>
