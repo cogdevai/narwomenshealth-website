@@ -353,8 +353,8 @@
         .founder-bottom { height: 1px; }
 
         /* ── Pillars interlude — privacy, data scale, science.
-           Sits between Founder (3) and Waitlist (4). Half-height so it reads
-           as a breath, not a sales section. No images, no header. */
+           Sits between Founder (3) and the macro-band before the footer.
+           Half-height so it reads as a breath, not a sales section. */
         .pillars {
             background: var(--parchment);
             min-height: 50vh;
@@ -410,109 +410,7 @@
             font-weight: 500;
         }
 
-        /* ── Section 4 — Waitlist ── */
-        .waitlist {
-            background: var(--parchment);
-            padding: 96px 64px;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        .waitlist-title {
-            font-family: var(--serif);
-            font-style: italic;
-            font-weight: 400;
-            font-size: 48px;
-            line-height: 1.1;
-            color: var(--ink);
-            margin-bottom: 24px;
-            max-width: 20ch;
-        }
-        .waitlist-sub {
-            font-family: var(--serif);
-            font-weight: 400;
-            font-size: 18px;
-            line-height: 1.7;
-            color: var(--body);
-            max-width: 480px;
-            margin: 0 auto 24px;
-        }
-        .waitlist-pricing {
-            font-family: var(--serif);
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 1.6;
-            color: var(--muted);
-            max-width: 480px;
-            margin: 0 auto 56px;
-        }
-        .waitlist-pricing em {
-            color: var(--burgundy);
-            font-style: italic;
-            font-weight: 500;
-        }
-        .waitlist-form {
-            display: flex;
-            justify-content: center;
-            align-items: baseline;
-            gap: 16px;
-            max-width: 520px;
-            margin: 0 auto;
-        }
-        .email-input {
-            flex: 1;
-            max-width: 400px;
-            border: none;
-            border-bottom: 0.5px solid var(--burgundy);
-            background: transparent;
-            font-family: var(--sans);
-            font-size: 16px;
-            font-weight: 400;
-            color: var(--ink);
-            padding: 10px 0;
-            outline: none;
-        }
-        .email-input::placeholder {
-            color: var(--muted);
-            font-family: var(--sans);
-            font-weight: 400;
-        }
-        .email-input:focus { border-bottom-color: var(--terracotta); }
-        .send-btn {
-            font-family: var(--serif);
-            font-style: italic;
-            font-weight: 400;
-            font-size: 16px;
-            color: var(--burgundy);
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 10px 0;
-            white-space: nowrap;
-            transition: color 200ms ease;
-        }
-        .send-btn:hover { color: var(--terracotta); }
-        .waitlist-success {
-            font-family: var(--serif);
-            font-style: italic;
-            font-weight: 400;
-            font-size: 22px;
-            color: var(--burgundy);
-            display: none;
-        }
-        .waitlist-success.shown { display: block; }
-        .waitlist-form.hidden { display: none; }
-        .waitlist-meta {
-            margin-top: 48px;
-            font-family: var(--serif);
-            font-style: italic;
-            font-weight: 400;
-            font-size: 15px;
-            color: var(--muted);
-            line-height: 1.6;
-        }
-
-        /* ── Macro band — transition between waitlist and footer ── */
+        /* ── Macro band — transition between pillars and footer ── */
         .macro-band {
             min-height: auto;
             height: 140px;
@@ -633,7 +531,7 @@
         @media (max-width: 1023px) {
             .hero, .founder { padding: 40px; }
             .audience { padding: 96px 40px; }
-            .waitlist, .pillars { padding: 72px 40px; }
+            .pillars { padding: 72px 40px; }
             .footer { padding: 80px 40px 36px; }
             .wordmark { font-size: 72px; }
             .hero-headline { font-size: 48px; }
@@ -643,7 +541,6 @@
             .founder-quote { font-size: 24px; }
             .pillars-grid { gap: 40px; }
             .pillar-line { font-size: 20px; }
-            .waitlist-title { font-size: 40px; }
             .footer-top { grid-template-columns: 1fr; gap: 40px; }
             .footer-cols { gap: 32px; }
         }
@@ -652,7 +549,7 @@
         @media (max-width: 767px) {
             .hero, .founder { padding: 28px; }
             .audience { padding: 80px 28px; }
-            .waitlist, .pillars { padding: 56px 28px; }
+            .pillars { padding: 56px 28px; }
             .footer { padding: 72px 28px 32px; }
             .product-pair { flex-direction: column; gap: 24px; }
             .product-still--deep { transform: none; }
@@ -665,9 +562,6 @@
             .audience-prose { font-size: 19px; line-height: 1.6; }
             .audience-prose .opener { font-size: 22px; margin-bottom: 20px; }
             .founder-quote { font-size: 20px; }
-            .waitlist-title { font-size: 30px; }
-            .waitlist-form { flex-direction: column; align-items: stretch; gap: 8px; }
-            .send-btn { text-align: left; }
             .footer-cols { grid-template-columns: 1fr; gap: 28px; }
 
             /* Vertical-crop linen for narrow viewports — light from above
@@ -765,21 +659,6 @@
     <p class="pillars-traction">Quietly building. The <em>first wave</em> is open.</p>
 </section>
 
-<!-- ═══════════════ Section 4 — Waitlist ═══════════════ -->
-<section class="waitlist">
-    <h2 class="waitlist-title">Join the first readers.</h2>
-    <p class="waitlist-sub">A short note when the app is ready to read for you on iPhone. First wave only — no marketing list, no second message you didn't ask for.</p>
-    <p class="waitlist-pricing"><em>£5.99</em> a month or <em>£44.99</em> a year. The first week is free.</p>
-
-    <form class="waitlist-form" id="waitlist-form" autocomplete="off" novalidate>
-        <input type="email" name="email" class="email-input" placeholder="your email" aria-label="Your email" required>
-        <button type="submit" class="send-btn">send →</button>
-    </form>
-    <div class="waitlist-success" id="waitlist-success">thank you. we'll write.</div>
-
-    <div class="waitlist-meta">First wave only — iPhone, no list, no second message.</div>
-</section>
-
 <!-- ═══════════════ Section 5 — Footer ═══════════════ -->
 <section class="footer">
     <div>
@@ -825,38 +704,6 @@
     // Reveal the hero immediately so it doesn't fade on initial paint.
     document.querySelector('.hero').classList.add('is-visible');
 
-    // Waitlist form — placeholder POST. Wire to Mailchimp / Notion / Airtable
-    // by replacing the body of submitWaitlist() with a real fetch().
-    const form = document.getElementById('waitlist-form');
-    const success = document.getElementById('waitlist-success');
-
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const email = (form.elements.email.value || '').trim();
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            form.elements.email.focus();
-            return;
-        }
-        try {
-            await submitWaitlist(email);
-        } catch (err) {
-            console.error(err);
-        }
-        form.classList.add('hidden');
-        success.classList.add('shown');
-    });
-
-    async function submitWaitlist(email) {
-        // TODO: replace with real endpoint (Mailchimp / Notion / Airtable / Buttondown).
-        // Example shape:
-        //   await fetch('https://api.example.com/waitlist', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify({ email })
-        //   });
-        console.log('[waitlist] would submit:', email);
-        await new Promise(r => setTimeout(r, 220));
-    }
 </script>
 
 </body>
