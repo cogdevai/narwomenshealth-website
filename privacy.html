@@ -46,7 +46,7 @@
 <div class="container">
     <a href="index.html" class="back">&larr; Back to Nar</a>
     <h1>Privacy Policy</h1>
-    <div class="updated">Last updated: 4 May 2026</div>
+    <div class="updated">Last updated: 5 May 2026</div>
 
     <p class="lede">
         Nar is built so this question has a real, structural answer: we never receive your health data. Everything below describes how that's actually true — not just what we promise.
@@ -61,7 +61,7 @@
         <li>If you connect Oura, your iPhone fetches your own Oura data directly from Oura's API. We are not in the loop.</li>
         <li>If you connect Apple Health, that data never leaves your device — Apple's HealthKit doesn't transmit it to us.</li>
         <li>We do not run analytics, telemetry, crash reporters, or third-party SDKs that profile your usage.</li>
-        <li>Sign in with Apple is the only sign-in method. You control whether your real email is shared.</li>
+        <li>Sign in with Apple is one sign-in option. If you choose it, your <em>onboarding profile</em> (life stage, cycle profile, age) syncs through your own Apple iCloud so a reinstall recognises you. <strong>Biomarkers are explicitly excluded from this sync.</strong> If you continue without signing in, nothing syncs.</li>
         <li>Subscription transactions are handled by Apple. We see only the anonymous transaction identifier needed to confirm an active subscription.</li>
     </ul>
 
@@ -75,10 +75,11 @@
     <p>All of this is read into the app's memory on your device, written to local storage protected by iOS Data Protection (encrypted at rest), and processed by Nar's scoring engine and on-device CoreML model.</p>
 
     <h2>4. Data that leaves your device</h2>
-    <p>Two categories of data leave your iPhone, both narrowly scoped:</p>
+    <p>Three narrowly-scoped categories of data leave your iPhone:</p>
     <ul>
         <li><strong>Oura API requests (only if you connect Oura).</strong> Your device makes authenticated requests to <code>api.ouraring.com</code> using an access token you grant. The response is your own Oura data, returned to your device and stored locally. Nar's servers are not part of this exchange.</li>
         <li><strong>Apple Sign In and App Store transactions.</strong> Authentication is handled by Apple. Subscriptions are handled by Apple's StoreKit. Apple may share an anonymous user identifier and subscription status with the app. We never receive your name, email, or payment information directly.</li>
+        <li><strong>iCloud profile sync (only if you Sign in with Apple).</strong> Your onboarding profile — life stage, age, cycle profile, postpartum details if applicable, your name if you typed one — is synced through Apple's iCloud Key-Value Storage so a reinstall under the same Apple ID restores it. The sync is end-to-end encrypted, scoped to your Apple ID, and never visible to us. <strong>Your biomarkers are explicitly excluded from this sync</strong> — HRV, sleep, temperature, heart rate, and every other Apple Health value stays on your device. If you choose "Continue without signing in" instead, nothing syncs at all and reinstalling starts fresh.</li>
     </ul>
     <p>That is the complete list of outbound network activity from Nar.</p>
 
@@ -92,7 +93,7 @@
     </ul>
 
     <h2>6. Crash reporting</h2>
-    <p>To fix bugs, Nar may use a third-party crash reporter (such as Firebase Crashlytics). Where it is enabled, it is configured to receive only the crash trace — the technical record of what failed in the app code. It does <strong>not</strong> receive your health metrics, your symptom logs, your cycle profile, your name, or your email. The user identifier shared with the crash reporter is the anonymous, app-specific identifier provided by Sign in with Apple, which cannot be used to identify you across other apps.</p>
+    <p>Nar ships with no crash reporter. There is no Firebase Crashlytics, no Sentry, no Bugsnag, no equivalent service. If the app crashes, no trace is sent anywhere — we simply have no visibility into production crashes by design. We accept that trade-off because every alternative we evaluated required some inbound stream of identifier-tagged data, and the privacy posture matters more than the diagnostic convenience.</p>
 
     <h2>7. The on-device ML model</h2>
     <p>Nar ships with a small temporal encoder (~69,000 parameters) that runs in CoreML on your iPhone. It was trained on the public LifeSnaps dataset (Pierris et al., Nature Scientific Data, 2022) before shipping, and is frozen — it does not learn from your data, send your data anywhere, or transmit predictions externally.</p>
@@ -112,13 +113,23 @@
     <h2>12. Data deletion</h2>
     <p>You can remove all Nar data at any time:</p>
     <ul>
-        <li><strong>Inside the app:</strong> Profile → Delete account. This wipes the local database, personal baselines, and any cached Oura tokens.</li>
+        <li><strong>Inside the app:</strong> Profile → Delete account. This wipes the local database, personal baselines, any cached Oura tokens, and your iCloud profile-sync entry if you signed in with Apple.</li>
         <li><strong>By deleting the app:</strong> Removing Nar from your iPhone removes its local storage. Your Apple Health data is unaffected (it's owned by Apple Health, not Nar).</li>
         <li><strong>For Oura:</strong> Revoke Nar's access in the Oura app or at <a href="https://cloud.ouraring.com/personal-access-tokens">cloud.ouraring.com</a>.</li>
     </ul>
 
-    <h2>13. Your rights</h2>
-    <p>Because we do not hold your health data on our servers, traditional access/correction/erasure requests largely don't apply — there is nothing on our end to access, correct, or erase. For any subscription-related personal data Apple shares with us, or for general questions, contact <a href="mailto:nar@cogdev.ai">nar@cogdev.ai</a>.</p>
+    <h2>13. Your rights under the UK GDPR</h2>
+    <p>The structural answer is that we do not hold your health data on any server, so there is nothing on our end to access, correct, or erase — those requests would resolve to your own device. That said, the UK GDPR gives you the following rights, and we are happy to answer questions about how each one applies in our architecture:</p>
+    <ul>
+        <li><strong>Right of access (Article 15).</strong> What we hold about you on our side is limited to the App Store transaction identifier Apple shares with us when you subscribe. There are no health records on our servers to disclose.</li>
+        <li><strong>Right to rectification (Article 16).</strong> Your profile lives on your device — edit it directly in Settings → Profile.</li>
+        <li><strong>Right to erasure (Article 17).</strong> Profile → Delete account inside the app wipes the local database, the iCloud profile sync entry, and all cached tokens. Deleting the app from your phone removes everything else.</li>
+        <li><strong>Right to restriction of processing (Article 18).</strong> Disconnect Oura in the app to stop further fetches; revoke HealthKit access in iOS Settings to stop reads.</li>
+        <li><strong>Right to data portability (Article 20).</strong> Apple Health and Oura are the systems of record for your biomarkers; both offer their own export. Nar produces no derived data we hold for you.</li>
+        <li><strong>Right to object (Article 21).</strong> You can stop processing at any time by disconnecting data sources or deleting the app.</li>
+        <li><strong>Right to lodge a complaint.</strong> If you believe we have not handled your data lawfully, you can complain to the UK Information Commissioner's Office at <a href="https://ico.org.uk">ico.org.uk</a>.</li>
+    </ul>
+    <p>Lawful basis: we rely on (a) your consent for HealthKit and Oura access (you grant it through the platform's own permission sheet, and can withdraw it the same way), and (b) legitimate interests for the minimum subscription metadata Apple shares with us in order to deliver the service you bought. For any of the above, contact <a href="mailto:nar@cogdev.ai">nar@cogdev.ai</a>.</p>
 
     <h2>14. Changes to this policy</h2>
     <p>If we change this policy in any material way (for example, adding any backend processing of health data), we will update the "Last updated" date and notify you in the app before the change takes effect. Any change that would weaken the on-device-only architecture would be a fundamental change to the product, not a minor update.</p>
