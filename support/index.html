@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — Nar</title>
+    <meta name="description" content="Help with subscriptions, data, devices, and account questions for Nar.">
+    <link rel="canonical" href="https://narwomenshealth.com/support">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --burgundy: #6B1E2E;
+            --burgundy-deep: #4A0F1C;
+            --seed: #C4785A;
+            --membrane: #F5EDE6;
+            --cream: #FAF6F1;
+            --parchment: #F0E8DC;
+            --slate: #3D3C3A;
+            --slate-mid: #6B6460;
+            --slate-light: #A09A96;
+            --border-faint: rgba(61, 60, 58, 0.08);
+            --serif: 'Cormorant Garamond', serif;
+            --sans: 'DM Sans', -apple-system, sans-serif;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: var(--sans); background: var(--cream); color: var(--slate); line-height: 1.7; font-weight: 300; padding: 56px 24px 88px; }
+        .container { max-width: 720px; margin: 0 auto; }
+        .back { display: inline-block; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--slate-light); text-decoration: none; margin-bottom: 32px; font-weight: 300; }
+        .back:hover { color: var(--burgundy); }
+        h1 { font-family: var(--serif); font-size: 44px; font-weight: 300; font-style: italic; color: var(--burgundy); line-height: 1.1; margin-bottom: 8px; }
+        .updated { font-size: 12px; letter-spacing: 0.08em; color: var(--slate-light); margin-bottom: 48px; text-transform: uppercase; }
+        .lede { font-size: 17px; color: var(--slate-mid); line-height: 1.7; margin-bottom: 40px; padding-bottom: 32px; border-bottom: 0.5px solid var(--border-faint); }
+        .contact-card { background: var(--membrane); border: 0.5px solid var(--border-faint); border-radius: 12px; padding: 22px 24px; margin-bottom: 48px; }
+        .contact-card .label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--slate-light); margin-bottom: 6px; }
+        .contact-card a { font-family: var(--serif); font-size: 22px; font-style: italic; color: var(--burgundy); border-bottom: none; }
+        .contact-card .note { font-size: 13px; color: var(--slate-mid); margin-top: 8px; }
+        h2 { font-family: var(--serif); font-size: 22px; font-weight: 400; font-style: italic; color: var(--slate); margin-top: 40px; margin-bottom: 14px; }
+        p, li { font-size: 15px; color: var(--slate-mid); line-height: 1.75; margin-bottom: 12px; }
+        ul, ol { padding-left: 22px; margin-bottom: 16px; }
+        li { margin-bottom: 8px; }
+        strong { color: var(--slate); font-weight: 500; }
+        a { color: var(--burgundy); text-decoration: none; border-bottom: 0.5px solid rgba(107,30,46,0.3); }
+        a:hover { border-bottom-color: var(--burgundy); }
+        code { font-family: ui-monospace, SFMono-Regular, monospace; font-size: 13px; background: var(--membrane); padding: 1px 6px; border-radius: 4px; color: var(--slate); }
+        .footer { margin-top: 64px; padding-top: 32px; border-top: 0.5px solid var(--border-faint); font-size: 12px; color: var(--slate-light); }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="/" class="back">&larr; Back to Nar</a>
+    <h1>Support</h1>
+    <div class="updated">Last updated: 6 May 2026</div>
+
+    <p class="lede">
+        Most questions land in one of the five sections below. If yours doesn't, write to us — we read every message.
+    </p>
+
+    <div class="contact-card">
+        <div class="label">Email support</div>
+        <a href="mailto:benan@cogdev.ai?subject=Nar%20support">benan@cogdev.ai</a>
+        <div class="note">We aim to reply within two working days. Include your iPhone model, iOS version, and what you were doing when the issue happened — it helps us answer in one round.</div>
+    </div>
+
+    <h2>1. My subscription isn't recognised</h2>
+    <p>This is the most common one. In order:</p>
+    <ol>
+        <li>Open Nar → <strong>Profile</strong> → <strong>Restore purchases</strong>.</li>
+        <li>Confirm you're signed into the iPhone with the same Apple ID that made the purchase. Settings → tap your name at the top — that's the Apple ID Nar will check.</li>
+        <li>If you redeemed a code or used Family Sharing, allow a minute for Apple's servers to propagate before trying Restore again.</li>
+    </ol>
+    <p>Still stuck? Email us with your <strong>Apple Order ID</strong> (in the email receipt from Apple, or at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>). We can confirm the entitlement is live on Apple's side.</p>
+
+    <h2>2. I want a refund</h2>
+    <p>Refunds are issued by Apple, not by us — we don't see your payment details. Request one at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> within Apple's refund window. If you'd like us to flag a quality issue alongside your request, write to us and we'll do that too.</p>
+
+    <h2>3. I reinstalled and my data is gone</h2>
+    <p>Nar stores all health data on your iPhone — there is no Nar server holding a copy. This is by design: we never receive your sleep, HRV, cycle, or symptom data, so we can't restore it.</p>
+    <p>Your data <em>can</em> survive a reinstall <strong>only</strong> if your iPhone was backed up to iCloud or a Mac and you restored from that backup. If you wiped without a backup, the data is gone.</p>
+    <p>To avoid this in future: iPhone Settings → your name → iCloud → iCloud Backup → on.</p>
+
+    <h2>4. Oura won't connect (or keeps disconnecting)</h2>
+    <ol>
+        <li>Profile → tap the Oura row → <strong>Disconnect</strong>.</li>
+        <li>Reconnect and sign in to Oura again. Tokens occasionally expire; reconnecting refreshes them.</li>
+        <li>If the connection succeeds but data isn't pulling, check that your Oura app has synced your ring recently — Nar reads from Oura's cloud, which only has what your ring has uploaded.</li>
+    </ol>
+
+    <h2>5. The app crashes or won't open</h2>
+    <ol>
+        <li>Force-quit Nar (swipe up and flick it away) and reopen.</li>
+        <li>If it still crashes, please email us with: iPhone model, iOS version, and what screen you were on when it happened.</li>
+        <li>Optional but very helpful: Settings → Privacy &amp; Security → Analytics &amp; Improvements → <strong>Analytics Data</strong> → find a file beginning with <code>Nar-</code> dated to your crash → share with us. These stay on your device unless you choose to send them.</li>
+    </ol>
+    <p>Nar ships without a crash reporter (per our <a href="/privacy.html">privacy policy</a>), so the report you share is the only way we can see what happened.</p>
+
+    <h2>Other useful links</h2>
+    <ul>
+        <li><a href="/privacy.html">Privacy policy</a> — what stays on your device, what doesn't.</li>
+        <li><a href="/terms.html">Terms of use</a></li>
+        <li>Manage or cancel your subscription: iPhone Settings → tap your name → Subscriptions → Nar.</li>
+    </ul>
+
+    <div class="footer">
+        Nar is operated by Cognitive Intelligence Development. Nar is not a medical device. It does not diagnose, treat, or prevent any condition.
+    </div>
+</div>
+</body>
+</html>
