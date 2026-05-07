@@ -582,9 +582,46 @@
         .warm-tone {
             filter: hue-rotate(-2deg) saturate(0.95);
         }
+
+        /* ── Seed rain ──
+           Quiet ambient layer — pomegranate seeds drifting down the page.
+           Sits below content (z-index: 0) but above section backgrounds is
+           not what we want; we want them above the linen but below text. So
+           the layer is fixed at z-index: 1 and individual sections that need
+           to occlude it stay above with z-index: 2 via their own stacking. */
+        .seed-rain {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 3;
+        }
+        .seed {
+            position: absolute;
+            top: -8%;
+            width: var(--sz, 22px);
+            height: var(--sz, 22px);
+            background: url('images/pomegranate-seed.png') center/contain no-repeat;
+            opacity: 0;
+            will-change: transform, opacity;
+            animation: seed-fall var(--dur, 22s) linear infinite;
+            animation-delay: var(--delay, 0s);
+            filter: drop-shadow(0 2px 4px rgba(74, 15, 28, 0.18));
+        }
+        @keyframes seed-fall {
+            0%   { transform: translate3d(0, 0, 0) rotate(var(--r0, 0deg)); opacity: 0; }
+            8%   { opacity: var(--op, 0.28); }
+            92%  { opacity: var(--op, 0.28); }
+            100% { transform: translate3d(var(--dx, 0px), 110vh, 0) rotate(var(--r1, 30deg)); opacity: 0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .seed-rain { display: none; }
+        }
     </style>
 </head>
 <body>
+
+<div class="seed-rain" id="seedRain" aria-hidden="true"></div>
 
 <!-- ═══════════════ Section 1 — Hero ═══════════════ -->
 <section class="hero bleed-down-parchment">
@@ -703,6 +740,37 @@
 
     // Reveal the hero immediately so it doesn't fade on initial paint.
     document.querySelector('.hero').classList.add('is-visible');
+
+    // ── Seed rain ──
+    // Editorial density on purpose: a small number of seeds, low opacity,
+    // slow fall. Reads as ambient texture, not confetti.
+    (function () {
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduce) return;
+        const layer = document.getElementById('seedRain');
+        if (!layer) return;
+        const COUNT = 26;
+        for (let i = 0; i < COUNT; i++) {
+            const el = document.createElement('div');
+            el.className = 'seed';
+            const sz = 18 + Math.random() * 18;          // 18–36 px
+            const op = 0.45 + Math.random() * 0.35;      // 0.45–0.80
+            const dur = 14 + Math.random() * 12;         // 14–26 s
+            const delay = -Math.random() * dur;          // start mid-flight
+            const dx = (Math.random() * 60 - 30) + 'px'; // small horizontal drift
+            const r0 = (Math.random() * 60 - 30) + 'deg';
+            const r1 = (parseFloat(r0) + (Math.random() * 80 - 40)) + 'deg';
+            el.style.setProperty('--sz', sz + 'px');
+            el.style.setProperty('--op', op);
+            el.style.setProperty('--dur', dur + 's');
+            el.style.setProperty('--delay', delay + 's');
+            el.style.setProperty('--dx', dx);
+            el.style.setProperty('--r0', r0);
+            el.style.setProperty('--r1', r1);
+            el.style.left = (Math.random() * 100) + '%';
+            layer.appendChild(el);
+        }
+    })();
 
 </script>
 
