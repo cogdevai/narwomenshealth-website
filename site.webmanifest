@@ -1,0 +1,13 @@
+{
+    "name": "Nar — Women's Health Reading",
+    "short_name": "Nar",
+    "description": "A women's health reader for iPhone. Reads Apple Health and Oura Ring data on-device across nine domains.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#EDE0CA",
+    "theme_color": "#5C1A2B",
+    "icons": [
+        { "src": "/images/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+        { "src": "/images/favicon-512.png", "sizes": "512x512", "type": "image/png" }
+    ]
+}

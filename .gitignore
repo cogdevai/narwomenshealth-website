@@ -1,3 +1,5 @@
 .DS_Store
 images/originals/
 *.tmp.jpg
+_render/
+images/favicon-512.png

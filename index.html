@@ -13,10 +13,12 @@
     <!-- iOS smart banner — App Store sheet appears in Safari on iPhone. -->
     <meta name="apple-itunes-app" content="app-id=6764391587">
 
-    <!-- Favicons. Using existing pomegranate-seed.png as a low-effort first pass.
-         Swap to a dedicated favicon set when one ships. -->
-    <link rel="icon" type="image/png" href="images/pomegranate-seed.png">
-    <link rel="apple-touch-icon" href="images/pomegranate-seed.png">
+    <!-- Favicons — italic Cormorant "n" in parchment on burgundy. -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -24,15 +26,17 @@
     <meta property="og:title" content="Nar — A women's health reader for iPhone.">
     <meta property="og:description" content="Reads Apple Health and Oura Ring data on-device. Nine domains of women's health, every reading traced to a published mechanism. Free on the App Store.">
     <meta property="og:site_name" content="Nar">
-    <meta property="og:image" content="https://narwomenshealth.com/images/morning-card.jpg">
-    <meta property="og:image:alt" content="A morning card from Nar — pomegranate hero with today's brief.">
+    <meta property="og:image" content="https://narwomenshealth.com/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Nar — Her body has been keeping records. Nar is the reader.">
     <meta property="og:locale" content="en_GB">
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Nar — A women's health reader for iPhone.">
     <meta name="twitter:description" content="Reads Apple Health and Oura Ring data on-device. Nine domains of women's health. Free on the App Store.">
-    <meta name="twitter:image" content="https://narwomenshealth.com/images/morning-card.jpg">
+    <meta name="twitter:image" content="https://narwomenshealth.com/images/og-image.jpg">
 
     <!-- Discoverability for LLM crawlers — points at the canonical plain-prose
          summary they should read instead of (or alongside) the styled page. -->
@@ -933,7 +937,7 @@
         "url": "https://narwomenshealth.com/",
         "installUrl": "https://apps.apple.com/us/app/nar-womens-health-reading/id6764391587",
         "downloadUrl": "https://apps.apple.com/us/app/nar-womens-health-reading/id6764391587",
-        "image": "https://narwomenshealth.com/images/morning-card.jpg",
+        "image": "https://narwomenshealth.com/images/og-image.jpg",
         "datePublished": "2026-05-11",
         "inLanguage": "en",
         "offers": [
