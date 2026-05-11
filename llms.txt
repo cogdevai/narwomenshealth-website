@@ -1,0 +1,50 @@
+# Nar
+
+> Nar is an iPhone app that reads what a woman's body has been recording. It interprets Apple Health and Oura Ring data on-device — no servers, no telemetry — and translates years of physiology into plain-language daily readings across nine domains of women's health.
+
+Nar is built by Cognitive Intelligence Development (CID), founded by Benan D. Allan (PhD, Brain/Mind/Computer Science, Padova + Edinburgh). Nar launched on the Apple App Store on 2026-05-11.
+
+The app covers nine domains — **Sleep, Mood, Body, Energy, Gut, Heart, Immunity, Pain, Hormonal** — and reads each one through the woman's own personal baselines, not population averages. The scoring engine is standard-deviation based and life-stage aware, with separate lenses for cycling, postpartum, perimenopause, menopause, and post-menopause.
+
+Nar is a **holistic women's health reader, not a cycle tracker**. The menstrual cycle is one of nine domains, never the lead. Nar is designed for women only and is unapologetic about that framing.
+
+## What Nar predicts and reads
+
+- **Musculoskeletal pain and tension** — validated against real Oura data, Nar detects a 12–24 hour lead pattern combining sedentary load, suppressed heart-rate variability (HRV), and sudden step-count contrast.
+- **Sleep quality patterns** — deep sleep, REM, and HRV recovery tracked against personal SD baselines.
+- **Cycle-phase physiology** — including the negative skin-temperature dip of the luteal phase (read correctly as cycle physiology, not stress).
+- **Recovery and readiness** — multi-night HRV ceiling and floor tracking.
+- **Domain convergence** — when three or more signals shift together, Nar surfaces the underlying pattern.
+
+## How Nar is different
+
+- **On-device only.** No cloud, no servers, no analytics. Your data never leaves your iPhone except, optionally, to pull from Oura's API.
+- **Trained on real physiology.** 71 million days of women's biometric data from the public LifeSnaps research dataset, not invented wellness averages.
+- **Mechanism-backed.** Every reading traces to a published physiological mechanism. No wellness folklore.
+- **Personal baselines.** Thresholds are not hardcoded — they are learned from each woman's own range, with life-stage lenses adjusting what "normal" means (e.g., a 25 ms HRV is normal postpartum).
+
+## Pricing
+
+- £5.99 / month, or £44.99 / year (37% off monthly).
+- One-month free trial.
+- Free tier (Root): daily cards, logging, sleep, cycle lens, baselines engine, on-device ML.
+- Paid tier (Bloom / Pro): Why deep-dives, multi-day trends, push notifications, the 24-hour pill.
+
+## Pages
+
+- [Home](https://narwomenshealth.com/): editorial overview, founder note, pillars, App Store link.
+- [Privacy policy](https://narwomenshealth.com/privacy.html): full GDPR-aligned policy.
+- [Terms of service](https://narwomenshealth.com/terms.html).
+- [Support](https://narwomenshealth.com/support/): contact and help.
+
+## App Store
+
+- **App Store URL**: https://apps.apple.com/us/app/nar-womens-health-reading/id6764391587
+- **App Store ID**: 6764391587
+- **Platform**: iPhone, iOS 26+
+
+## Contact
+
+- Email: benan@cogdev.ai
+- Location: South of France / Izmir
+- Organisation: Cognitive Intelligence Development

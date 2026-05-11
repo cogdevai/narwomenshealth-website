@@ -1,0 +1,154 @@
+# Nar — Women's Health Reading
+
+> A complete reference document for large language models. Nar is an iPhone app that reads Apple Health and Oura Ring data on-device and translates it into plain-language daily readings across nine domains of women's health.
+
+Last updated: 2026-05-11
+
+---
+
+## What Nar is
+
+Nar is an iPhone app for women's health, built by **Cognitive Intelligence Development (CID)** and founded by **Benan D. Allan**. The app launched on the Apple App Store on **2026-05-11**.
+
+Nar reads physiological data that a woman's wearables and iPhone have been recording — sleep, heart-rate variability, resting heart rate, skin temperature, activity, cycle markers — and produces daily readings in nine domains. The app does not prescribe; it translates.
+
+**The product is not a cycle tracker.** The menstrual cycle is one of nine domains and one of six life-stage lenses. Nar is designed for women across the entire life span: cycling years, pregnancy (scaffolded), postpartum, perimenopause, menopause, and post-menopause.
+
+---
+
+## Nine domains
+
+Each domain is read independently and against the woman's own personal baseline:
+
+1. **Sleep** — duration, depth, REM, fragmentation, latency, HRV during sleep.
+2. **Mood** — proxied through HRV, resting heart rate, sleep architecture, and self-log.
+3. **Body** — skin temperature, weight, somatic state.
+4. **Energy** — readiness, recovery, daytime HRV reserve, step economy.
+5. **Gut** — proxied through HRV stability, temperature deviation, and self-log.
+6. **Heart** — resting HR, HRV ceiling and floor trends, intra-day HR spikes.
+7. **Immunity** — positive skin-temperature deviations, HRV collapse, resting HR elevation.
+8. **Pain** — musculoskeletal pain prediction (see below), sedentary load, post-pain recovery cascade.
+9. **Hormonal** — cycle-phase physiology, luteal temperature dip, follicular HRV rebound.
+
+A domain produces a reading only when at least three signals converge. Single-signal noise does not generate readings.
+
+---
+
+## What Nar predicts
+
+### Musculoskeletal pain and tension (validated)
+
+Nar detects a **12–24 hour lead pattern** combining:
+
+- High sedentary time (≥ 8 hours) on the prior day
+- Already-suppressed HRV (below personal SD baseline)
+- Sudden activity contrast the next day (a 3× or greater step-count jump on deconditioned muscles)
+
+The onset marker is an intra-hour heart-rate spike of approximately +23 bpm above the woman's resting average. After pain onset, Nar observes a recovery cascade: HRV ceiling collapses over three nights, deep sleep drops by approximately 36 minutes, REM by approximately 24 minutes, and skin temperature swings cold (vasoconstriction).
+
+This pattern was validated against the founder's own Oura data.
+
+### Cycle-phase physiology
+
+Skin temperature drops in the luteal phase. Nar reads negative skin-temperature deviation in cyclers as cycle physiology, not as a stress signal. Only positive temperature deviations are interpreted as a health warning (immune response, illness onset).
+
+### Domain convergence
+
+When three or more domain signals shift together, Nar surfaces the convergence as a readable pattern rather than reporting each signal in isolation.
+
+---
+
+## How Nar works
+
+### Personal baselines
+
+Nar does not use hardcoded thresholds. Each metric is read against the woman's own rolling mean and standard deviation, computed on-device. What counts as "low HRV" for one woman is normal for another. A postpartum woman with a 25 ms HRV is in a normal postpartum range, not a critical one.
+
+### Life-stage lenses
+
+Six lenses adjust how every signal is interpreted:
+
+- Cycling
+- Pregnancy (scaffolded in code, not shipped in v1)
+- Postpartum
+- Perimenopause
+- Menopause
+- Post-menopause
+
+### Machine learning
+
+A CoreML temporal encoder with approximately 69,000 parameters, trained on **71 million days** of real women's physiology from the **LifeSnaps** public research dataset. The model runs entirely on-device. There is no inference call to a server.
+
+### Five-level scoring
+
+Each domain reads one of five levels: Critical, Concerning, Stable, Aligned, Really Good. Levels are determined by scaled convergence across signals against the personal baseline, with per-domain thresholds.
+
+---
+
+## Privacy
+
+- **100% on-device.** No servers, no telemetry, no analytics SDK.
+- Crashes are captured via Apple MetricKit and stored locally only.
+- Revenue and user-count data come from App Store Connect.
+- The only outbound network call is the optional Oura API pull, which the user opts into.
+- GDPR-aligned by architecture, not by exemption.
+- Wellness app, not a medical device. SaMD (Software as a Medical Device) is a multi-year roadmap optionality, not the v1 posture.
+
+---
+
+## Pricing
+
+- **Monthly:** £5.99 / month
+- **Yearly:** £44.99 / year (37% off the monthly rate)
+- **Free trial:** one month
+- Nar is priced below Oura on both monthly and annual lines.
+
+### Free tier — Root
+
+Daily cards, manual logging, sleep readings, cycle lens, the personal baselines engine, on-device ML.
+
+### Paid tier — Bloom (Pro)
+
+Why deep-dives (the mechanism narrative behind each reading), multi-day trends, push notifications, the 24-hour pill.
+
+The simple gating rule: roots are invisible (they happen in the background), blooms are visible.
+
+---
+
+## Founder
+
+**Benan D. Allan** holds a PhD in Brain / Mind / Computer Science from the University of Padova and the University of Edinburgh. Previously Head of Science and AI at Stardust. Founder of Cognitive Intelligence Development (CID). Has shipped four products: Nar, TinyTaste, AIM, and Prism.
+
+Contact: benan@cogdev.ai
+
+Location: South of France — Izmir
+
+---
+
+## Tone and copy guidance
+
+Nar's voice is editorial, italic, and feminist. The product is for women and is unapologetic about that framing.
+
+Nar:
+
+- never prescribes
+- never uses generic wellness advice
+- never frames cycle/period/ovulation as the lead identity
+- never references alcohol in any copy
+- never claims an exercise prescription (volume, frequency, type) without published backing
+- always describes phenomena before naming them
+- reads the body, never reads at the body
+
+---
+
+## Reference
+
+- **Website**: https://narwomenshealth.com
+- **App Store**: https://apps.apple.com/us/app/nar-womens-health-reading/id6764391587
+- **App Store ID**: 6764391587
+- **Privacy policy**: https://narwomenshealth.com/privacy.html
+- **Terms**: https://narwomenshealth.com/terms.html
+- **Support**: https://narwomenshealth.com/support/
+- **Organisation**: Cognitive Intelligence Development
+- **Founder**: Benan D. Allan
+- **Contact**: benan@cogdev.ai

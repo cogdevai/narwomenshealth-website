@@ -3,15 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nar — Women's health, on her phone.</title>
-    <meta name="description" content="An iPhone app for women's health. A quiet, on-device reader for the records her body has been keeping. Early access — 2026.">
+    <title>Nar — A women's health reader for iPhone, Apple Health & Oura Ring</title>
+    <meta name="description" content="Nar is an iPhone app that reads what your body has been recording across nine domains of women's health — sleep, mood, energy, recovery, immunity, gut, heart, cycle, and pain. On-device, Apple Health and Oura Ring, every reading traced to a published mechanism. Free on the App Store.">
+    <meta name="keywords" content="women's health app, women's health iPhone app, Oura Ring app for women, Apple Health women's app, on-device health tracking, HRV women, postpartum tracking, perimenopause app, holistic women's health, cycle tracking alternative, personal baselines health">
+    <meta name="author" content="Cognitive Intelligence Development">
+    <meta name="theme-color" content="#5C1A2B">
     <link rel="canonical" href="https://narwomenshealth.com/">
 
+    <!-- iOS smart banner — App Store sheet appears in Safari on iPhone. -->
+    <meta name="apple-itunes-app" content="app-id=6764391587">
+
+    <!-- Favicons. Using existing pomegranate-seed.png as a low-effort first pass.
+         Swap to a dedicated favicon set when one ships. -->
+    <link rel="icon" type="image/png" href="images/pomegranate-seed.png">
+    <link rel="apple-touch-icon" href="images/pomegranate-seed.png">
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://narwomenshealth.com/">
-    <meta property="og:title" content="Nar.">
-    <meta property="og:description" content="A reader for the records your body keeps. Early access — 2026.">
+    <meta property="og:title" content="Nar — A women's health reader for iPhone.">
+    <meta property="og:description" content="Reads Apple Health and Oura Ring data on-device. Nine domains of women's health, every reading traced to a published mechanism. Free on the App Store.">
     <meta property="og:site_name" content="Nar">
+    <meta property="og:image" content="https://narwomenshealth.com/images/morning-card.jpg">
+    <meta property="og:image:alt" content="A morning card from Nar — pomegranate hero with today's brief.">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nar — A women's health reader for iPhone.">
+    <meta name="twitter:description" content="Reads Apple Health and Oura Ring data on-device. Nine domains of women's health. Free on the App Store.">
+    <meta name="twitter:image" content="https://narwomenshealth.com/images/morning-card.jpg">
+
+    <!-- Discoverability for LLM crawlers — points at the canonical plain-prose
+         summary they should read instead of (or alongside) the styled page. -->
+    <link rel="alternate" type="text/markdown" title="Nar for LLMs" href="/llms.txt">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -186,6 +211,82 @@
             align-items: center;
             gap: 10px;
             padding-bottom: 4px;
+        }
+
+        /* Quiet hero CTA — italic burgundy link with a hairline underline.
+           Stays inside the editorial register; no Apple badge here. */
+        .hero-cta {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-top: 28px;
+            font-family: var(--serif);
+            font-style: italic;
+            font-weight: 400;
+            font-size: 18px;
+            color: var(--burgundy);
+            border-bottom: 0.5px solid rgba(92, 26, 43, 0.4);
+            padding-bottom: 4px;
+            transition: border-color 200ms ease, color 200ms ease;
+        }
+        .hero-cta:hover {
+            color: var(--terracotta);
+            border-color: rgba(184, 84, 58, 0.6);
+        }
+        .hero-cta-arrow { font-size: 16px; opacity: 0.7; }
+        .hero-cta-note {
+            margin-top: 12px;
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 14px;
+            color: var(--muted);
+            opacity: 0.9;
+        }
+
+        /* Prominent App Store CTA — replaces the old "Quietly building"
+           traction line. Editorial pill button, burgundy fill on parchment. */
+        .appstore-cta-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            margin: 56px auto 0;
+            max-width: 1080px;
+        }
+        .appstore-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 18px 32px;
+            background: var(--burgundy);
+            color: var(--parchment);
+            border-radius: 999px;
+            font-family: var(--sans);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            transition: background 200ms ease, transform 200ms ease;
+        }
+        .appstore-cta:hover {
+            background: var(--terracotta);
+            transform: translateY(-1px);
+        }
+        .appstore-cta-icon {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+        .appstore-cta-note {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 15px;
+            color: var(--burgundy);
+            opacity: 0.78;
+        }
+        .appstore-cta-note em {
+            color: var(--terracotta);
+            font-weight: 500;
         }
         .scroll-line {
             width: 1px;
@@ -410,6 +511,201 @@
             font-weight: 500;
         }
 
+        /* ── How Nar reads — declarative section ──
+           LLM-extractable plain prose. Names the nine domains, the validated
+           pain prediction pattern, and the differentiation vs Oura/cycle
+           trackers. The visual register stays editorial; the language goes
+           plain. Search engines and AI overviews lift sentences from here. */
+        .reads {
+            background: var(--parchment);
+            padding: 120px 64px;
+            justify-content: center;
+            position: relative;
+        }
+        .reads-inner {
+            max-width: 920px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .reads-eyebrow {
+            font-family: var(--serif);
+            font-style: italic;
+            font-weight: 400;
+            font-size: 15px;
+            color: var(--burgundy);
+            opacity: 0.85;
+            margin-bottom: 18px;
+            letter-spacing: 0.01em;
+        }
+        .reads-heading {
+            font-family: var(--serif);
+            font-style: italic;
+            font-weight: 400;
+            font-size: 44px;
+            line-height: 1.15;
+            color: var(--ink);
+            margin-bottom: 36px;
+            max-width: 720px;
+            letter-spacing: -0.005em;
+        }
+        .reads-prose {
+            font-family: var(--serif);
+            font-size: 19px;
+            line-height: 1.65;
+            color: var(--body);
+            max-width: 720px;
+            margin-bottom: 28px;
+        }
+        .reads-prose em {
+            color: var(--terracotta);
+            font-style: italic;
+            font-weight: 500;
+        }
+        .reads-prose strong {
+            font-weight: 500;
+            color: var(--ink);
+        }
+        .reads-domains {
+            margin: 56px 0 48px;
+            padding: 36px 0;
+            border-top: 0.5px solid rgba(92, 26, 43, 0.18);
+            border-bottom: 0.5px solid rgba(92, 26, 43, 0.18);
+        }
+        .reads-domains-title {
+            font-family: var(--sans);
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--burgundy);
+            margin-bottom: 24px;
+        }
+        .reads-domains-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px 40px;
+        }
+        .reads-domain {
+            font-family: var(--serif);
+            font-size: 18px;
+            color: var(--ink);
+        }
+        .reads-domain b {
+            font-style: italic;
+            font-weight: 500;
+            color: var(--burgundy);
+            margin-right: 8px;
+        }
+        .reads-callout {
+            background: rgba(184, 84, 58, 0.05);
+            border-left: 2px solid var(--terracotta);
+            padding: 24px 28px;
+            margin: 40px 0 0;
+            max-width: 720px;
+        }
+        .reads-callout-title {
+            font-family: var(--sans);
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--terracotta);
+            margin-bottom: 12px;
+        }
+        .reads-callout-body {
+            font-family: var(--serif);
+            font-size: 17px;
+            line-height: 1.6;
+            color: var(--ink);
+        }
+        .reads-callout-body em {
+            color: var(--terracotta);
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        @media (max-width: 1023px) {
+            .reads { padding: 96px 40px; }
+            .reads-heading { font-size: 36px; }
+            .reads-domains-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 767px) {
+            .reads { padding: 80px 28px; }
+            .reads-heading { font-size: 28px; }
+            .reads-prose { font-size: 17px; }
+            .reads-domains-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ── FAQ section ──
+           FAQPage schema lives in the head. The visible markup mirrors it so
+           people scrolling see the same questions Google and ChatGPT do. */
+        .faq {
+            background: var(--parchment);
+            padding: 120px 64px;
+            justify-content: center;
+        }
+        .faq-inner {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+        .faq-eyebrow {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 15px;
+            color: var(--burgundy);
+            opacity: 0.85;
+            margin-bottom: 16px;
+        }
+        .faq-heading {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 44px;
+            line-height: 1.15;
+            color: var(--ink);
+            margin-bottom: 48px;
+            letter-spacing: -0.005em;
+        }
+        .faq-list {
+            list-style: none;
+            border-top: 0.5px solid rgba(92, 26, 43, 0.18);
+        }
+        .faq-item {
+            padding: 28px 0;
+            border-bottom: 0.5px solid rgba(92, 26, 43, 0.18);
+        }
+        .faq-q {
+            font-family: var(--serif);
+            font-style: italic;
+            font-weight: 500;
+            font-size: 22px;
+            line-height: 1.3;
+            color: var(--burgundy);
+            margin-bottom: 12px;
+        }
+        .faq-a {
+            font-family: var(--serif);
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--body);
+            max-width: 720px;
+        }
+        .faq-a em {
+            color: var(--terracotta);
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        @media (max-width: 1023px) {
+            .faq { padding: 96px 40px; }
+            .faq-heading { font-size: 36px; }
+        }
+        @media (max-width: 767px) {
+            .faq { padding: 80px 28px; }
+            .faq-heading { font-size: 28px; }
+            .faq-q { font-size: 20px; }
+            .faq-a { font-size: 16px; }
+        }
+
         /* ── Macro band — transition between pillars and footer ── */
         .macro-band {
             min-height: auto;
@@ -618,6 +914,154 @@
             .seed-rain { display: none; }
         }
     </style>
+
+    <!-- ── Structured data ──
+         Three JSON-LD blocks: SoftwareApplication (Nar itself), Organization
+         (CID), and FAQPage (the questions the audience asks before they tap
+         install). Search engines use these for rich results and AI overviews;
+         LLM crawlers lift them as authoritative claims. -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Nar",
+        "alternateName": ["Nar — Women's Health Reading", "Nar Women's Health"],
+        "description": "An iPhone app that reads what a woman's body has been recording across nine domains of women's health — sleep, mood, body, energy, gut, heart, immunity, pain, and hormonal. On-device, Apple Health and Oura Ring, every reading traced to a published mechanism.",
+        "applicationCategory": "HealthApplication",
+        "applicationSubCategory": "Women's Health",
+        "operatingSystem": "iOS 26",
+        "url": "https://narwomenshealth.com/",
+        "installUrl": "https://apps.apple.com/us/app/nar-womens-health-reading/id6764391587",
+        "downloadUrl": "https://apps.apple.com/us/app/nar-womens-health-reading/id6764391587",
+        "image": "https://narwomenshealth.com/images/morning-card.jpg",
+        "datePublished": "2026-05-11",
+        "inLanguage": "en",
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": "Nar — Monthly",
+                "price": "5.99",
+                "priceCurrency": "GBP",
+                "category": "subscription",
+                "availability": "https://schema.org/InStock"
+            },
+            {
+                "@type": "Offer",
+                "name": "Nar — Yearly",
+                "price": "44.99",
+                "priceCurrency": "GBP",
+                "category": "subscription",
+                "availability": "https://schema.org/InStock"
+            }
+        ],
+        "featureList": [
+            "On-device reader for Apple Health and Oura Ring data",
+            "Nine domains: sleep, mood, body, energy, gut, heart, immunity, pain, hormonal",
+            "Personal baselines, not population averages",
+            "Six life-stage lenses: cycling, postpartum, perimenopause, menopause, post-menopause",
+            "Musculoskeletal pain prediction from sedentary load, HRV suppression, and step contrast",
+            "Trained on 71 million days of real women's physiology",
+            "100% on-device — no servers, no telemetry"
+        ],
+        "publisher": {
+            "@type": "Organization",
+            "name": "Cognitive Intelligence Development"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Cognitive Intelligence Development",
+        "alternateName": "CID",
+        "url": "https://narwomenshealth.com/",
+        "email": "benan@cogdev.ai",
+        "founder": {
+            "@type": "Person",
+            "name": "Benan D. Allan",
+            "jobTitle": "Founder",
+            "alumniOf": [
+                { "@type": "CollegeOrUniversity", "name": "University of Padova" },
+                { "@type": "CollegeOrUniversity", "name": "University of Edinburgh" }
+            ]
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is Nar?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Nar is an iPhone app that reads what a woman's body has been recording. It interprets Apple Health and Oura Ring data on-device across nine domains of women's health — sleep, mood, body, energy, gut, heart, immunity, pain, and hormonal — and translates the readings into plain language."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is Nar a cycle tracker?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. The menstrual cycle is one of nine domains and one of six life-stage lenses inside Nar, not the lead identity. Nar is a holistic women's health reader designed for cycling, postpartum, perimenopause, menopause, and post-menopause."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How is Nar different from Oura?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Oura records the data. Nar reads it. Nar runs entirely on the iPhone, reads Apple Health and Oura together, uses personal baselines instead of population averages, applies life-stage lenses, and traces every reading to a published physiological mechanism."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What can Nar predict?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Nar's strongest validated prediction is musculoskeletal pain and tension 12 to 24 hours in advance, combining sedentary load, suppressed heart-rate variability, and sudden activity contrast. Nar also reads cycle-phase physiology, recovery cascades after pain or illness, and multi-domain convergence."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Nar work without the internet?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Nar is 100% on-device. The only optional outbound network call is the Oura API pull, which you opt into. There are no servers, no telemetry, and no analytics."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What does Nar cost?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Nar costs £5.99 per month or £44.99 per year, with a one-month free trial. The free tier includes daily cards, logging, sleep readings, the cycle lens, and the personal baselines engine."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What devices does Nar support?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Nar runs on iPhone with iOS 26. It reads Apple Health — whichever metrics Apple Watch, the iPhone, or any connected source has written into it — and, optionally, the Oura Ring via the Oura API."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Who built Nar?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Nar is built by Cognitive Intelligence Development (CID), founded by Benan D. Allan, PhD in Brain, Mind, and Computer Science (Padova and Edinburgh), previously Head of Science and AI at Stardust."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
 
@@ -631,12 +1075,17 @@
             <div>
                 <div class="wordmark">nar</div>
             </div>
-            <div class="eyebrow-cap">An iPhone app. Early access, twenty twenty-six.</div>
+            <div class="eyebrow-cap">An iPhone app. Now on the App Store.</div>
         </div>
 
         <div class="hero-center">
             <h1 class="hero-headline">Her body has been keeping <em>records</em>. Nar is the <em>reader</em>.</h1>
             <p class="hero-sub">An app, finally, that reads what her body has been telling her — across sleep, mood, energy, recovery, the immune system, the gut, the heart, the cycle, the long seasons of a life. Apple Health and Oura have been writing it down for years, with almost no one to read it back. Nar is that reader — quiet, on her phone alone, fluent in every life stage. Built for women, only, and unapologetically so.</p>
+            <a class="hero-cta" href="https://apps.apple.com/us/app/nar-womens-health-reading/id6764391587" rel="noopener">
+                Open Nar on the App Store
+                <span class="hero-cta-arrow" aria-hidden="true">→</span>
+            </a>
+            <div class="hero-cta-note">Free download · the first month is on us.</div>
         </div>
 
         <div class="hero-bottom">
@@ -675,6 +1124,50 @@
     </div>
 </section>
 
+<!-- ═══════════════ Section 4 — What Nar reads ═══════════════
+     Declarative, LLM-extractable. The poetry is upstairs; this is the page
+     where named entities, numbers, and mechanisms live in plain language. -->
+<section class="reads">
+    <div class="reads-inner">
+        <div class="reads-eyebrow">What Nar reads.</div>
+        <h2 class="reads-heading">Nine domains, <em>one</em> reader.</h2>
+
+        <p class="reads-prose">
+            <strong>Nar is an iPhone app that reads Apple Health and Oura Ring data on-device</strong> and turns it into plain-language daily readings across <strong>nine domains of women's health</strong>. Every reading is computed against the woman's own personal baseline — a rolling standard deviation, not a population average — and filtered through one of six <strong>life-stage lenses</strong>: cycling, postpartum, perimenopause, menopause, and post-menopause.
+        </p>
+
+        <p class="reads-prose">
+            The model behind it was trained on <strong>71 million days of real women's physiology</strong> from the public LifeSnaps research dataset, runs as a CoreML temporal encoder entirely on the iPhone, and never leaves the device. The only optional outbound call is the Oura API, which the user opts into.
+        </p>
+
+        <div class="reads-domains">
+            <div class="reads-domains-title">The nine domains</div>
+            <div class="reads-domains-grid">
+                <div class="reads-domain"><b>Sleep.</b>Architecture, fragmentation, HRV during sleep.</div>
+                <div class="reads-domain"><b>Mood.</b>Read through HRV, resting heart rate, sleep depth.</div>
+                <div class="reads-domain"><b>Body.</b>Skin temperature, weight, somatic state.</div>
+                <div class="reads-domain"><b>Energy.</b>Readiness, recovery, daytime HRV reserve.</div>
+                <div class="reads-domain"><b>Gut.</b>HRV stability, temperature, self-log.</div>
+                <div class="reads-domain"><b>Heart.</b>Resting HR, HRV ceiling and floor trends.</div>
+                <div class="reads-domain"><b>Immunity.</b>Positive skin-temperature deviations, HRV collapse.</div>
+                <div class="reads-domain"><b>Pain.</b>Sedentary load, deconditioning, recovery cascade.</div>
+                <div class="reads-domain"><b>Hormonal.</b>Cycle-phase physiology across the long span.</div>
+            </div>
+        </div>
+
+        <p class="reads-prose">
+            <strong>Nar is not a cycle tracker.</strong> The menstrual cycle is one of nine domains and one of six lenses, never the lead. Nar is built for women across the long span — including postpartum (where a 25 ms HRV is normal, not critical), perimenopause, and the years after — and it reads each life stage on its own terms.
+        </p>
+
+        <div class="reads-callout">
+            <div class="reads-callout-title">What Nar predicts</div>
+            <p class="reads-callout-body">
+                Nar's strongest validated prediction is <em>musculoskeletal pain and tension</em>, twelve to twenty-four hours in advance. The pattern combines a high sedentary day, an HRV already suppressed below personal baseline, and a sudden activity contrast the next day. The onset marker is an intra-hour heart-rate spike of roughly twenty-three beats above resting average. After the event, Nar follows the recovery cascade — the HRV ceiling collapsing over three nights, deep sleep falling about thirty-six minutes, the skin running cold — so the woman knows what she is recovering from, and for how long.
+            </p>
+        </div>
+    </div>
+</section>
+
 <!-- ─── Pillars interlude — privacy · scale · science ─── -->
 <section class="pillars">
     <div class="pillars-grid">
@@ -691,9 +1184,59 @@
             <div class="pillar-cap">Peer-reviewed science, not wellness folklore.</div>
         </div>
     </div>
-    <!-- Traction line. Replace the prose with a real count when you have one,
-         e.g. "Already three hundred women on the first wave." -->
-    <p class="pillars-traction">Quietly building. The <em>first wave</em> is open.</p>
+    <div class="appstore-cta-wrap">
+        <a class="appstore-cta" href="https://apps.apple.com/us/app/nar-womens-health-reading/id6764391587" rel="noopener">
+            <svg class="appstore-cta-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M17.05 12.04c-.03-3.16 2.58-4.68 2.7-4.75-1.47-2.15-3.76-2.45-4.57-2.49-1.95-.2-3.8 1.15-4.79 1.15-.99 0-2.51-1.12-4.13-1.09-2.13.03-4.09 1.24-5.18 3.14-2.21 3.83-.56 9.49 1.59 12.59 1.05 1.52 2.3 3.22 3.94 3.16 1.58-.06 2.18-1.02 4.09-1.02 1.91 0 2.45 1.02 4.12.99 1.7-.03 2.78-1.55 3.82-3.07 1.2-1.76 1.7-3.47 1.72-3.56-.04-.02-3.3-1.27-3.33-5.05zM13.96 2.42c.87-1.05 1.46-2.51 1.3-3.97-1.26.05-2.78.84-3.68 1.89-.81.93-1.51 2.42-1.32 3.85 1.4.11 2.83-.71 3.7-1.77z" transform="translate(0 2)"/>
+            </svg>
+            Download on the App Store
+        </a>
+        <div class="appstore-cta-note">Free for a <em>month</em>, then £5.99/mo or £44.99/yr.</div>
+    </div>
+</section>
+
+<!-- ═══════════════ Section — FAQ ═══════════════
+     Mirrors the FAQPage JSON-LD in the head so humans see the same questions
+     Google's AI overviews and ChatGPT pull from the structured data. -->
+<section class="faq">
+    <div class="faq-inner">
+        <div class="faq-eyebrow">Asked, before they tap install.</div>
+        <h2 class="faq-heading">Eight <em>questions</em>.</h2>
+        <ul class="faq-list">
+            <li class="faq-item">
+                <div class="faq-q">What is Nar?</div>
+                <p class="faq-a">Nar is an iPhone app that reads what a woman's body has been recording. It interprets Apple Health and Oura Ring data on-device across nine domains of women's health — sleep, mood, body, energy, gut, heart, immunity, pain, and hormonal — and translates the readings into plain language.</p>
+            </li>
+            <li class="faq-item">
+                <div class="faq-q">Is Nar a cycle tracker?</div>
+                <p class="faq-a"><em>No.</em> The menstrual cycle is one of nine domains and one of six life-stage lenses, not the lead identity. Nar is a holistic women's health reader designed for cycling, postpartum, perimenopause, menopause, and post-menopause.</p>
+            </li>
+            <li class="faq-item">
+                <div class="faq-q">How is Nar different from Oura?</div>
+                <p class="faq-a">Oura records the data. Nar reads it. Nar runs entirely on the iPhone, reads Apple Health and Oura together, uses personal baselines instead of population averages, applies life-stage lenses, and traces every reading to a published physiological mechanism.</p>
+            </li>
+            <li class="faq-item">
+                <div class="faq-q">What can Nar predict?</div>
+                <p class="faq-a">Nar's strongest validated prediction is <em>musculoskeletal pain and tension</em> twelve to twenty-four hours in advance, combining sedentary load, suppressed heart-rate variability, and sudden activity contrast. Nar also reads cycle-phase physiology, the recovery cascade after pain or illness, and multi-domain convergence.</p>
+            </li>
+            <li class="faq-item">
+                <div class="faq-q">Does Nar work without the internet?</div>
+                <p class="faq-a">Yes. Nar is 100% on-device. The only optional outbound network call is the Oura API pull, which the user opts into. There are no servers, no telemetry, and no analytics.</p>
+            </li>
+            <li class="faq-item">
+                <div class="faq-q">What does Nar cost?</div>
+                <p class="faq-a">Nar costs £5.99 per month or £44.99 per year, with a one-month free trial. The free tier includes daily cards, logging, sleep readings, the cycle lens, and the personal baselines engine.</p>
+            </li>
+            <li class="faq-item">
+                <div class="faq-q">What devices does Nar support?</div>
+                <p class="faq-a">Nar runs on iPhone with iOS 26. It reads <em>Apple Health</em> — whichever metrics Apple Watch, the iPhone, or any connected source has written into it — and, optionally, the <em>Oura Ring</em> via the Oura API.</p>
+            </li>
+            <li class="faq-item">
+                <div class="faq-q">Who built Nar?</div>
+                <p class="faq-a">Nar is built by Cognitive Intelligence Development (CID), founded by Benan D. Allan, PhD in Brain, Mind, and Computer Science (Padova and Edinburgh), previously Head of Science and AI at Stardust.</p>
+            </li>
+        </ul>
+    </div>
 </section>
 
 <!-- ═══════════════ Section 5 — Footer ═══════════════ -->
