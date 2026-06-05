@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A community raise, opening soon — Nar</title>
+    <meta name="description" content="Register interest in Nar's upcoming community raise. Leave your name and email and you'll be the first to know when it opens. Registering interest is not an offer to invest and commits you to nothing.">
+    <meta name="author" content="Cognitive Intelligence Development">
+    <meta name="theme-color" content="#5C1A2B">
+    <link rel="canonical" href="https://narwomenshealth.com/raise.html">
+
+    <!-- Favicons — same set as the homepage. -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://narwomenshealth.com/raise.html">
+    <meta property="og:title" content="A community raise is coming.">
+    <meta property="og:description" content="Nar was built alone, on principle. The next part, built with the people who get it. Leave your email and you'll be the first to know when the community raise opens.">
+    <meta property="og:site_name" content="Nar">
+    <meta property="og:image" content="https://narwomenshealth.com/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="A community raise is coming.">
+    <meta name="twitter:description" content="Leave your email and you'll be the first to know when Nar's community raise opens.">
+    <meta name="twitter:image" content="https://narwomenshealth.com/images/og-image.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="preload" as="image" href="images/linen-golden.jpg" media="(min-width: 768px)">
+    <link rel="preload" as="image" href="images/linen-vertical.jpg" media="(max-width: 767px)">
+
+    <style>
+        /* ── Tokens — identical to the homepage (index.html). ── */
+        :root {
+            --burgundy: #5C1A2B;
+            --terracotta: #B8543A;
+            --ink: #2A1F1D;
+            --body: #5A4842;
+            --muted: #8A6F68;
+            --parchment: #EDE0CA;
+            --serif: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        body {
+            font-family: var(--serif);
+            color: var(--ink);
+            background: var(--parchment);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        a { color: inherit; text-decoration: none; }
+        em { font-style: italic; color: var(--terracotta); font-weight: 400; }
+
+        /* ── Page frame — the hero linen, exactly as on the homepage, so the
+              page reads as the same material. ── */
+        .raise {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 64px;
+            overflow: hidden;
+        }
+        .raise-bg {
+            position: absolute;
+            inset: -3%;
+            background: url('images/linen-golden.jpg') center / cover no-repeat;
+            z-index: 0;
+            animation: raise-drift 60s ease-in-out infinite;
+            will-change: transform;
+        }
+        @keyframes raise-drift {
+            0%   { transform: translate3d(-14px, -10px, 0) scale(1.012); }
+            50%  { transform: translate3d(14px, 10px, 0) scale(1.025); }
+            100% { transform: translate3d(-14px, -10px, 0) scale(1.012); }
+        }
+        .raise::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(237, 224, 202, 0.18) 0%,
+                rgba(237, 224, 202, 0.40) 55%,
+                rgba(237, 224, 202, 0.62) 100%
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+        .raise-grid {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            min-height: calc(100vh - 128px);
+        }
+
+        /* ── Top bar — wordmark home-link + quiet back link. ── */
+        .raise-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .wordmark {
+            font-family: var(--serif);
+            font-style: italic;
+            font-weight: 400;
+            font-size: 64px;
+            line-height: 0.9;
+            color: var(--burgundy);
+            letter-spacing: -0.01em;
+        }
+        .back-link {
+            margin-top: 14px;
+            font-family: var(--sans);
+            font-size: 11px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--burgundy);
+            opacity: 0.7;
+            transition: opacity 200ms ease, color 200ms ease;
+        }
+        .back-link:hover { opacity: 1; color: var(--terracotta); }
+
+        /* ── Center — copy + form, one calm column. ── */
+        .raise-center {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 48px 0;
+        }
+        .raise-inner { width: 100%; max-width: 560px; }
+
+        .raise-eyebrow {
+            font-family: var(--sans);
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2.6px;
+            color: var(--burgundy);
+            opacity: 0.85;
+            margin-bottom: 24px;
+        }
+        .raise-heading {
+            font-family: var(--serif);
+            font-style: italic;
+            font-weight: 400;
+            font-size: 56px;
+            line-height: 1.06;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+            margin-bottom: 28px;
+        }
+        .raise-body {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--body);
+            max-width: 500px;
+            margin: 0 auto 44px;
+        }
+
+        /* ── The form ── */
+        .raise-form { text-align: left; }
+        .field { margin-bottom: 22px; }
+        .field-label {
+            display: block;
+            font-family: var(--sans);
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--burgundy);
+            margin-bottom: 9px;
+        }
+        .field-input {
+            width: 100%;
+            font-family: var(--sans);
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--ink);
+            background: rgba(255, 255, 255, 0.35);
+            border: 0.5px solid rgba(92, 26, 43, 0.35);
+            border-radius: 4px;
+            padding: 14px 16px;
+            transition: border-color 200ms ease, box-shadow 200ms ease, background 200ms ease;
+        }
+        .field-input::placeholder { color: var(--muted); opacity: 0.7; }
+        .field-input:hover { border-color: rgba(92, 26, 43, 0.55); }
+        .field-input:focus {
+            outline: none;
+            border-color: var(--burgundy);
+            background: rgba(255, 255, 255, 0.55);
+            box-shadow: 0 0 0 3px rgba(92, 26, 43, 0.12);
+        }
+        .field-input[aria-invalid="true"] {
+            border-color: var(--terracotta);
+            box-shadow: 0 0 0 3px rgba(184, 84, 58, 0.12);
+        }
+        .field-error {
+            display: none;
+            font-family: var(--sans);
+            font-size: 12.5px;
+            line-height: 1.45;
+            color: var(--terracotta);
+            margin-top: 7px;
+        }
+        .field-error.is-shown { display: block; }
+
+        /* ── Consent checkbox ── */
+        .consent {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin: 6px 0 10px;
+            cursor: pointer;
+        }
+        .consent input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            flex: 0 0 auto;
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            border: 0.5px solid rgba(92, 26, 43, 0.5);
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.35);
+            cursor: pointer;
+            transition: border-color 200ms ease, background 200ms ease, box-shadow 200ms ease;
+            position: relative;
+        }
+        .consent input[type="checkbox"]:hover { border-color: var(--burgundy); }
+        .consent input[type="checkbox"]:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(92, 26, 43, 0.18);
+        }
+        .consent input[type="checkbox"]:checked {
+            background: var(--burgundy);
+            border-color: var(--burgundy);
+        }
+        .consent input[type="checkbox"]:checked::after {
+            content: '';
+            position: absolute;
+            left: 6.5px;
+            top: 2.5px;
+            width: 5px;
+            height: 10px;
+            border: solid var(--parchment);
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        .consent input[type="checkbox"][aria-invalid="true"] {
+            border-color: var(--terracotta);
+            box-shadow: 0 0 0 3px rgba(184, 84, 58, 0.14);
+        }
+        .consent-label {
+            font-family: var(--serif);
+            font-size: 17px;
+            line-height: 1.5;
+            color: var(--body);
+        }
+        #consentError { margin: 0 0 14px 32px; }
+
+        /* ── Submit — the homepage's editorial pill button. ── */
+        .submit-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            margin-top: 10px;
+            padding: 18px 32px;
+            background: var(--burgundy);
+            color: var(--parchment);
+            border: none;
+            border-radius: 999px;
+            font-family: var(--sans);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 200ms ease, transform 200ms ease, opacity 200ms ease;
+        }
+        .submit-btn:hover { background: var(--terracotta); transform: translateY(-1px); }
+        .submit-btn:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(92, 26, 43, 0.25);
+        }
+        .submit-btn[disabled] { opacity: 0.55; cursor: default; transform: none; }
+        .submit-btn[disabled]:hover { background: var(--burgundy); transform: none; }
+
+        /* ── Form-level error (network / server) ── */
+        .form-error {
+            display: none;
+            font-family: var(--sans);
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--terracotta);
+            margin-top: 16px;
+            text-align: center;
+        }
+        .form-error.is-shown { display: block; }
+
+        /* ── Fine print + privacy link ── */
+        .fine-print {
+            font-family: var(--serif);
+            font-style: italic;
+            font-weight: 400;
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: var(--muted);
+            max-width: 480px;
+            margin: 28px auto 0;
+            text-align: center;
+        }
+        .privacy-note {
+            font-family: var(--sans);
+            font-size: 11px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--burgundy);
+            opacity: 0.75;
+            text-align: center;
+            margin-top: 18px;
+        }
+        .privacy-note a {
+            border-bottom: 0.5px solid rgba(92, 26, 43, 0.4);
+            padding-bottom: 2px;
+            transition: color 200ms ease, border-color 200ms ease;
+        }
+        .privacy-note a:hover { color: var(--terracotta); border-color: rgba(184, 84, 58, 0.6); }
+
+        /* ── Success state ── */
+        .raise-success { display: none; }
+        .raise-success.is-shown { display: block; animation: success-rise 700ms ease both; }
+        @keyframes success-rise {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: none; }
+        }
+        .success-mark {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 28px;
+            border-radius: 999px;
+            border: 0.5px solid rgba(92, 26, 43, 0.4);
+            background: rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .success-mark svg { width: 24px; height: 24px; }
+        .success-line {
+            font-family: var(--serif);
+            font-style: italic;
+            font-weight: 400;
+            font-size: 28px;
+            line-height: 1.35;
+            color: var(--ink);
+            max-width: 460px;
+            margin: 0 auto;
+        }
+        .success-signoff {
+            font-family: var(--serif);
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            color: var(--burgundy);
+            margin-top: 18px;
+        }
+        .success-confirm {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 15px;
+            color: var(--muted);
+            margin-top: 26px;
+            max-width: 420px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.55;
+        }
+
+        /* ── Bottom — quiet footer line ── */
+        .raise-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 16px;
+            flex-wrap: wrap;
+            font-family: var(--sans);
+            font-size: 10px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            color: var(--burgundy);
+            opacity: 0.55;
+        }
+        .raise-bottom a { transition: opacity 200ms ease; }
+        .raise-bottom a:hover { opacity: 1; }
+
+        /* ── Responsive ── */
+        @media (max-width: 1023px) {
+            .raise { padding: 40px; }
+            .wordmark { font-size: 52px; }
+            .raise-heading { font-size: 44px; }
+        }
+        @media (max-width: 767px) {
+            .raise { padding: 28px; }
+            .wordmark { font-size: 44px; }
+            .raise-center { padding: 36px 0; }
+            .raise-heading { font-size: 34px; }
+            .raise-body { font-size: 17px; }
+            .success-line { font-size: 23px; }
+            .raise-bg { background-image: url('images/linen-vertical.jpg'); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .raise-bg { animation: none; transform: none; }
+            .raise-success.is-shown { animation: none; }
+        }
+    </style>
+</head>
+<body>
+
+<section class="raise">
+    <div class="raise-bg" aria-hidden="true"></div>
+    <div class="raise-grid">
+
+        <div class="raise-top">
+            <a class="wordmark" href="index.html" aria-label="Back to Nar home">nar</a>
+            <a class="back-link" href="index.html">&larr; Back</a>
+        </div>
+
+        <div class="raise-center">
+            <div class="raise-inner">
+
+                <!-- ── Interest form ── -->
+                <div id="formView">
+                    <div class="raise-eyebrow">A community raise, opening soon</div>
+                    <h1 class="raise-heading">A community raise is <em>coming</em>.</h1>
+                    <p class="raise-body">nar was built alone, on principle. The next part, I'd like to build with the people who get it. Soon I'm opening a small community raise. Leave your email and you'll be the first to know when it opens.</p>
+
+                    <form class="raise-form" id="raiseForm" novalidate>
+                        <div class="field">
+                            <label class="field-label" for="firstName">First name</label>
+                            <input
+                                class="field-input"
+                                type="text"
+                                id="firstName"
+                                name="firstName"
+                                autocomplete="given-name"
+                                required
+                                aria-required="true"
+                                aria-describedby="firstNameError">
+                            <p class="field-error" id="firstNameError" role="alert">Please add your first name.</p>
+                        </div>
+
+                        <div class="field">
+                            <label class="field-label" for="email">Email</label>
+                            <input
+                                class="field-input"
+                                type="email"
+                                id="email"
+                                name="email"
+                                inputmode="email"
+                                autocomplete="email"
+                                required
+                                aria-required="true"
+                                aria-describedby="emailError">
+                            <p class="field-error" id="emailError" role="alert">Please enter a valid email address.</p>
+                        </div>
+
+                        <label class="consent" for="consent">
+                            <input
+                                type="checkbox"
+                                id="consent"
+                                name="consent"
+                                required
+                                aria-required="true"
+                                aria-describedby="consentError">
+                            <span class="consent-label">Yes, email me about nar's upcoming raise. I can unsubscribe anytime.</span>
+                        </label>
+                        <p class="field-error" id="consentError" role="alert">Please tick the box so I know it's okay to email you.</p>
+
+                        <button class="submit-btn" type="submit" id="submitBtn">Keep me posted</button>
+
+                        <p class="form-error" id="formError" role="alert">
+                            Something went wrong on my end — please try again, or email
+                            <a href="mailto:benan@cogdev.ai" style="border-bottom:0.5px solid rgba(184,84,58,0.5)">benan@cogdev.ai</a>.
+                        </p>
+                    </form>
+
+                    <p class="fine-print">
+                        Registering interest is not an offer to invest and commits you to nothing. No payment is taken here. When the raise opens, you'll receive a link to the regulated platform where any investment actually happens.
+                    </p>
+                    <p class="privacy-note">
+                        We only store your name and email. <a href="privacy.html">How we handle it</a>.
+                    </p>
+                </div>
+
+                <!-- ── Success state (shown after submit, no reload) ── -->
+                <div class="raise-success" id="successView" role="status" aria-live="polite">
+                    <div class="success-mark" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#5C1A2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 12.5l5 5L20 6.5"/>
+                        </svg>
+                    </div>
+                    <p class="success-line">You're on the list. I'll be in touch when it opens.</p>
+                    <div class="success-signoff">— Benan</div>
+                    <p class="success-confirm" id="successConfirm">
+                        Check your inbox for a confirmation email and click the link inside to confirm you're in.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="raise-bottom">
+            <span>© Cognitive Intelligence Development</span>
+            <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span>
+        </div>
+
+    </div>
+</section>
+
+<script>
+/* ════════════════════════════════════════════════════════════════════════
+   CONFIG — paste ONE Mailchimp value here.
+   ────────────────────────────────────────────────────────────────────────
+   This site is static (GitHub Pages, no server). Mailchimp doesn't allow a
+   normal cross-origin request, so we use its JSONP "post-json" endpoint — the
+   long-standing technique for custom forms on static sites. It still lets us
+   read the result (success / already-subscribed / bad email) and show inline
+   errors with no page reload. NO secret API key lives in this file: the values
+   below are the same public ones Mailchimp prints in every embedded form.
+
+   HOW TO GET YOUR URL (≈5 minutes, free, no card):
+     1. Create a free account at https://mailchimp.com (free plan, up to ~500
+        contacts). Confirm your own email.
+     2. Audience → Signup forms → "Embedded forms" → pick "Condensed".
+     3. In the generated code, copy the value of  <form action="...">.
+        It looks like:
+          https://YOURDC.list-manage.com/subscribe/post?u=abc123...&id=def456...&f_id=...
+        Paste that WHOLE url as MAILCHIMP_FORM_ACTION below.
+     4. Double opt-in is ON by default for embedded forms (a confirmation email
+        is sent — GDPR-clean). Leave it on. To turn it off later: Audience →
+        Settings → "Enable double opt-in" (then set DOUBLE_OPT_IN = false here).
+     5. Export anytime: Audience → All contacts → Export Audience (CSV). To
+        email everyone when the raise opens: Campaigns → create → send to this
+        audience.
+
+   The form's first-name field is stored in Mailchimp's FNAME merge field
+   (present by default on every audience). Nothing else to configure.
+
+   Switching providers later (Kit / MailerLite / Buttondown)? See RAISE_SETUP.md.
+   ════════════════════════════════════════════════════════════════════════ */
+    const MAILCHIMP_FORM_ACTION = 'https://narwomenshealth.us22.list-manage.com/subscribe/post?u=8a524a07cabb9171836b88e70&id=f0b1ac9b36&f_id=0078c2e1f0';
+
+    // Whether Mailchimp sends a double opt-in confirmation email (default: yes).
+    // true  -> success copy tells people to check their inbox to confirm.
+    // false -> hides that line (single opt-in: they're on the list immediately).
+    const DOUBLE_OPT_IN = true;
+/* ════════════════════════════════════════════════════════════════════════ */
+
+    const form        = document.getElementById('raiseForm');
+    const firstNameEl = document.getElementById('firstName');
+    const emailEl     = document.getElementById('email');
+    const consentEl   = document.getElementById('consent');
+    const submitBtn   = document.getElementById('submitBtn');
+    const formError   = document.getElementById('formError');
+    const formView    = document.getElementById('formView');
+    const successView = document.getElementById('successView');
+    const successConfirm = document.getElementById('successConfirm');
+
+    if (!DOUBLE_OPT_IN) successConfirm.style.display = 'none';
+
+    // RFC-pragmatic email check. The provider validates server-side too;
+    // this is the first, friendly line of defence.
+    const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function setError(inputEl, errorId, show) {
+        const errEl = document.getElementById(errorId);
+        errEl.classList.toggle('is-shown', show);
+        if (inputEl) inputEl.setAttribute('aria-invalid', show ? 'true' : 'false');
+    }
+
+    function validate() {
+        let ok = true;
+        let firstInvalid = null;
+
+        const nameOk = firstNameEl.value.trim().length > 0;
+        setError(firstNameEl, 'firstNameError', !nameOk);
+        if (!nameOk) { ok = false; firstInvalid = firstInvalid || firstNameEl; }
+
+        const emailOk = EMAIL_RE.test(emailEl.value.trim());
+        setError(emailEl, 'emailError', !emailOk);
+        if (!emailOk) { ok = false; firstInvalid = firstInvalid || emailEl; }
+
+        const consentOk = consentEl.checked;
+        setError(consentEl, 'consentError', !consentOk);
+        if (!consentOk) { ok = false; firstInvalid = firstInvalid || consentEl; }
+
+        if (firstInvalid) firstInvalid.focus();
+        return ok;
+    }
+
+    // Clear a field's error as soon as the user corrects it.
+    firstNameEl.addEventListener('input', () => {
+        if (firstNameEl.value.trim()) setError(firstNameEl, 'firstNameError', false);
+    });
+    emailEl.addEventListener('input', () => {
+        if (EMAIL_RE.test(emailEl.value.trim())) setError(emailEl, 'emailError', false);
+    });
+    consentEl.addEventListener('change', () => {
+        if (consentEl.checked) setError(consentEl, 'consentError', false);
+    });
+
+    function showSuccess() {
+        formView.style.display = 'none';
+        successView.classList.add('is-shown');
+        successView.focus && successView.focus();
+        // Nudge assistive tech / scroll the confirmation into view on mobile.
+        successView.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function resetButton() {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Keep me posted';
+    }
+
+    // ── JSONP call to Mailchimp's post-json endpoint. ──
+    // Mailchimp has no CORS headers, so we read its reply via a <script> tag
+    // and a one-time global callback rather than fetch(). Resolves with the
+    // parsed {result, msg} object, or null on network/timeout failure.
+    function mailchimpSubmit(actionUrl, params) {
+        return new Promise((resolve) => {
+            const cbName = 'mc__cb_' + Math.floor(Math.random() * 1e9);
+            const jsonUrl = actionUrl.replace('/subscribe/post?', '/subscribe/post-json?');
+            const qs = new URLSearchParams(params).toString();
+            const src = jsonUrl + '&' + qs + '&c=' + cbName;
+
+            let done = false;
+            const finish = (val) => {
+                if (done) return;
+                done = true;
+                delete window[cbName];
+                if (script.parentNode) script.parentNode.removeChild(script);
+                clearTimeout(timer);
+                resolve(val);
+            };
+
+            window[cbName] = (data) => finish(data);
+            const script = document.createElement('script');
+            script.src = src;
+            script.onerror = () => finish(null);
+            const timer = setTimeout(() => finish(null), 12000);
+            document.body.appendChild(script);
+        });
+    }
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        formError.classList.remove('is-shown');
+        if (!validate()) return;
+
+        // Guard: endpoint not configured yet.
+        if (MAILCHIMP_FORM_ACTION === 'REPLACE_WITH_MAILCHIMP_FORM_ACTION') {
+            formError.textContent = 'The list isn’t connected yet. (Paste your Mailchimp form URL into raise.html — see RAISE_SETUP.md.)';
+            formError.classList.add('is-shown');
+            console.warn('[raise] MAILCHIMP_FORM_ACTION is not set. Paste your Mailchimp embedded-form action URL into raise.html.');
+            return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+
+        // Mailchimp's anti-bot honeypot field is named b_<u>_<id>; it must be
+        // present and empty. We derive it from the action URL so you only ever
+        // paste one value.
+        let honeypotField = null;
+        try {
+            const u = new URL(MAILCHIMP_FORM_ACTION).searchParams.get('u');
+            const id = new URL(MAILCHIMP_FORM_ACTION).searchParams.get('id');
+            if (u && id) honeypotField = 'b_' + u + '_' + id;
+        } catch (_) { /* malformed URL — handled below */ }
+
+        const params = {
+            EMAIL: emailEl.value.trim(),
+            FNAME: firstNameEl.value.trim()
+        };
+        if (honeypotField) params[honeypotField] = '';
+
+        const data = await mailchimpSubmit(MAILCHIMP_FORM_ACTION, params);
+
+        if (!data) {
+            // Network failure / timeout / malformed config.
+            formError.classList.add('is-shown');
+            resetButton();
+            return;
+        }
+
+        if (data.result === 'success') {
+            showSuccess();
+            return;
+        }
+
+        // result === 'error'. Mailchimp prefixes some messages with "0 - ".
+        const rawMsg = (data.msg || '').replace(/^\d+\s*-\s*/, '');
+
+        // "Already subscribed" is a happy path for a waitlist — they're on the list.
+        if (/already subscribed/i.test(rawMsg)) {
+            showSuccess();
+            return;
+        }
+
+        // Surface email-specific errors inline on the field; everything else
+        // goes to the form-level message.
+        if (/email/i.test(rawMsg)) {
+            setError(emailEl, 'emailError', true);
+            document.getElementById('emailError').textContent = rawMsg;
+            emailEl.focus();
+        } else {
+            formError.textContent = rawMsg || 'Something went wrong — please try again.';
+            formError.classList.add('is-shown');
+        }
+        resetButton();
+    });
+</script>
+
+</body>
+</html>

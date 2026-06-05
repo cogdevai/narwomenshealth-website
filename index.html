@@ -457,6 +457,28 @@
         }
         .founder-bottom { height: 1px; }
 
+        /* Quiet raise invitation — sits under the founder note. Italic
+           burgundy link with a hairline underline, same register as the
+           hero CTA. Additive only; doesn't touch existing founder layout. */
+        .founder-raise {
+            margin-top: 48px;
+            font-family: var(--serif);
+            font-style: italic;
+            font-weight: 400;
+            font-size: 17px;
+            color: var(--burgundy);
+            opacity: 0.9;
+        }
+        .founder-raise a {
+            border-bottom: 0.5px solid rgba(92, 26, 43, 0.4);
+            padding-bottom: 3px;
+            transition: color 200ms ease, border-color 200ms ease;
+        }
+        .founder-raise a:hover {
+            color: var(--terracotta);
+            border-color: rgba(184, 84, 58, 0.6);
+        }
+
         /* ── Pillars interlude — privacy, data scale, science.
            Sits between Founder (3) and the macro-band before the footer.
            Half-height so it reads as a breath, not a sales section. */
@@ -768,7 +790,7 @@
         }
         .footer-cols {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 48px;
         }
         .footer-col {
@@ -1122,6 +1144,9 @@
                 </div>
                 <div class="diptych-caption">the morning card · the deeper read.</div>
             </div>
+            <p class="founder-raise">
+                Soon, a small community raise — <a href="raise.html">register your interest</a>.
+            </p>
         </div>
 
         <div class="founder-bottom"></div>
@@ -1259,6 +1284,11 @@
                     <div class="footer-col-label">Location</div>
                     <span>South of France — Izmir</span>
                     <span>2026</span>
+                </div>
+
+                <div class="footer-col">
+                    <div class="footer-col-label">The raise</div>
+                    <a href="raise.html">Register interest</a>
                 </div>
             </div>
         </div>
